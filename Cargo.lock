@@ -864,7 +864,7 @@ dependencies = [
 [[package]]
 name = "sqlu"
 version = "0.1.0"
-source = "git+https://github.com/zhangyuan/sqlu#0c52921e26d3c64a3bca3803c54a8cce27f01e4a"
+source = "git+https://github.com/zhangyuan/sqlu?tag=v0.0.1#ebeff858943ac0f69dc078638c4ff96a538bb244"
 dependencies = [
  "anyhow",
  "pretty_env_logger",
