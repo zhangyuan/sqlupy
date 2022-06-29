@@ -1,16 +1,20 @@
 use pyo3::prelude::*;
 use sqlu::sqlu::parser::parse_sql_as_json_value;
-use serde_json;
 use pyo3::exceptions;
+use pyo3::Python;
+use pythonize::pythonize;
+
 
 #[pyfunction]
-fn parse(dialact: &str, sql: &str) -> PyResult<String> {
-    let json = parse_sql_as_json_value(dialact, sql)
-        .map(|value| serde_json::to_string(&value).unwrap());
-    match json {
-        Ok(json_string) => Ok(json_string),
-        Err(e) => Err(exceptions::PyException::new_err(e.to_string()))
-    }
+fn parse(dialact: &str, sql: &str) -> PyResult<Py<PyAny>> {
+    parse_sql_as_json_value(dialact, sql)
+        .map(|value| {
+            let gil = Python::acquire_gil();
+            let py = gil.python();
+            let obj = pythonize(py, &value).unwrap();
+            obj
+        })
+        .or_else(|e| Err(exceptions::PyException::new_err(e.to_string())))
 }
 
 #[pymodule]

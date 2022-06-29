@@ -650,6 +650,16 @@ dependencies = [
 ]
 
 [[package]]
+name = "pythonize"
+version = "0.16.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "af9dc8ab903e422af4752dc4ad0d176147a71c9c1c982e1a513ba7a6438c1635"
+dependencies = [
+ "pyo3",
+ "serde",
+]
+
+[[package]]
 name = "quick-error"
 version = "1.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -881,7 +891,7 @@ version = "0.0.1"
 dependencies = [
  "anyhow",
  "pyo3",
- "serde_json",
+ "pythonize",
  "sqlu",
 ]
 
