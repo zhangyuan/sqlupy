@@ -11,5 +11,4 @@ crate-type = ["cdylib"]
 [dependencies]
 pyo3 = { version = "0.16.5", features = ["extension-module"] }
 sqlu = { git = "https://github.com/zhangyuan/sqlu", tag = "v0.0.1" }
-anyhow = "1.0"
-pythonize = "0.16.0"
+pythonize = "0.16"

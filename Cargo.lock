@@ -889,7 +889,6 @@ dependencies = [
 name = "sqlupy"
 version = "0.0.1"
 dependencies = [
- "anyhow",
  "pyo3",
  "pythonize",
  "sqlu",
